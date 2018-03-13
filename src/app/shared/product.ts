@@ -1,14 +1,14 @@
 export interface Price {
-	price: number,
-	formatedPrice: string
+	price: number;
+	formatedPrice: string;
 }
 
 export interface Product {
-	code: string,
-	name: string,
-	brand: string,
-	price: Price,
+	code: string;
+	name: string;
+	brand: string;
+	price: Price;
 	image: {
 		url: string
-	}
+	};
 }

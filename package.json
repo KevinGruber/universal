@@ -22,9 +22,6 @@
     "build:server": "ng build --prod --app server --output-hashing=false",
     "build:ssr": "webpack --config webpack.server.config.js"
   },
-  "pre-commit": [
-    "lint"
-  ],
   "private": true,
   "dependencies": {
     "@angular/animations": "5.2.8",

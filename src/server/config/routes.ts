@@ -14,4 +14,4 @@ export default [
 		method: 'post',
 		controller: 'CartController.post'
 	}
-]
+];

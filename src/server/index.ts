@@ -1,7 +1,7 @@
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
 
-(global as any).XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+(global as any).XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
 import * as Express from 'express';
 import { enableProdMode } from '@angular/core';
@@ -37,7 +37,7 @@ server.app.get('*.*', Express.static(join(DIST_FOLDER, 'browser'), {
 
 server.app.get('*', (req, res, next) => {
   console.log(req.url, 'into index');
-  if (req.url.startsWith('/jsapi')) return next();
+  if (req.url.startsWith('/jsapi')) { return next(); }
   res.render('index', { req });
 });
 

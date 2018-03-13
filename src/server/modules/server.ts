@@ -18,23 +18,23 @@ export class Server {
   configure() {
     this.config = {
       port: process.env.PORT || WebConfig.port
-    }
+    };
 
     this.app.use(Compression({
       filter: (req, res) => {
         if (req.headers['x-no-compression']) {
-          return false
+          return false;
         }
-        return Compression.filter(req, res)
+        return Compression.filter(req, res);
       }
-    }))
+    }));
 
     Routes.forEach((route: IRouteConfig) => {
       const controllerName = route.controller.split('.')[0];
       const actionName = route.controller.split('.')[1];
       const controller = Controllers[controllerName];
       if (controller) {
-        this.app[route.method](route.path, controller[actionName])
+        this.app[route.method](route.path, controller[actionName]);
       }
 
     });

@@ -7,16 +7,16 @@ export class CartController {
 			products: [
 				{
 					code: 12345,
-					name: "iPhone5",
-					brand: "Apple",
+					name: 'iPhone5',
+					brand: 'Apple',
 					price: {
 						price: 800.00,
-						formatedPrice: "EUR 800.00"
+						formatedPrice: 'EUR 800.00'
 					},
-					image: "http://via.placeholder.com/350x150"
+					image: 'http://via.placeholder.com/350x150'
 				}
 			]
-		})
+		});
 	}
 	static post(req, res) {
 		const cartId = req.params;
@@ -26,15 +26,15 @@ export class CartController {
 			products: [
 				{
 					code: 12345,
-					name: "iPhone5",
-					brand: "Apple",
+					name: 'iPhone5',
+					brand: 'Apple',
 					price: {
 						price: 800.00,
-						formatedPrice: "EUR 800.00"
+						formatedPrice: 'EUR 800.00'
 					},
-					image: "http://via.placeholder.com/350x150"
+					image: 'http://via.placeholder.com/350x150'
 				}
 			]
-		})
+		});
 	}
 }
