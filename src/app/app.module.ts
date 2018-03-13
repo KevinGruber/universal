@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TransferHttpCacheModule } from '@nguniversal/common';
 import { CoreModule } from './core/core.module';
-import { APP_ROUTING } from './app.routing';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,8 +18,9 @@ import { APP_ROUTING } from './app.routing';
   imports: [
     BrowserModule.withServerTransition({ appId: 'rialto-app' }),
     PrebootModule.withConfig({ appRoot: 'rlt-root' }),
-    RouterModule.forRoot(APP_ROUTING),
+    AppRoutingModule,
     CoreModule,
+    HttpClientModule,
     TransferHttpCacheModule,
   ],
   providers: [],

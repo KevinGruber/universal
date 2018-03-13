@@ -1,3 +1,14 @@
 <h3>
 	{{ message }}
 </h3>
+
+<h1>
+	Product 2
+</h1>
+
+<div *ngIf="product">
+	<span>{{ product.code }}</span><br>
+	<span>{{ product.brand }}</span><br>
+	<span>{{ product.price?.formatedPrice }}</span><br>
+	<img [src]="product.image?.url">
+</div>

@@ -1,7 +1,7 @@
 {
     "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
     "project": {
-      "name": "ng-universal-demo"
+      "name": "ng-shop-post"
     },
     "apps": [
       {
@@ -21,7 +21,7 @@
         "testTsconfig": "tsconfig.spec.json",
         "prefix": "rlt",
         "styles": [
-          "styles.css"
+          "styles.scss"
         ],
         "scripts": [],
         "environmentSource": "environments/environment.ts",
@@ -46,7 +46,7 @@
         "testTsconfig": "tsconfig.spec.json",
         "prefix": "rlt",
         "styles": [
-          "styles.css"
+          "styles.scss"
         ],
         "scripts": [],
         "environmentSource": "environments/environment.ts",
@@ -73,29 +73,13 @@
       }
     },
     "defaults": {
-      "styleExt": "css",
+      "serve": {
+        "port": 3100,
+        "proxyConfig": "./proxy.conf.json"
+      },
+      "styleExt": "scss",
       "component": {
-        "spec": false,
-        "inlineStyle": true,
-        "inlineTemplate": true
-      },
-      "directive": {
-        "spec": false
-      },
-      "class": {
-        "spec": false
-      },
-      "guard": {
-        "spec": false
-      },
-      "module": {
-        "spec": false
-      },
-      "pipe": {
-        "spec": false
-      },
-      "service": {
-        "spec": false
+        "changeDetection": "OnPush"
       }
     }
   }
