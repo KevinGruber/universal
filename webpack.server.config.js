@@ -11,6 +11,7 @@ module.exports = {
     prerender: './prerender.ts'
   },
   target: 'node',
+  watch: true,
   resolve: { extensions: ['.ts', '.js'] },
   // Make sure we include all node_modules etc
   externals: [/(node_modules|main\..*\.js)/,],

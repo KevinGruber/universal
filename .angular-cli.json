@@ -5,6 +5,8 @@
     },
     "apps": [
       {
+        "platform": "browser",
+        "name": "browser",
         "root": "src",
         "outDir": "dist/browser",
         "assets": [
@@ -17,7 +19,7 @@
         "test": "test.ts",
         "tsconfig": "tsconfig.app.json",
         "testTsconfig": "tsconfig.spec.json",
-        "prefix": "app",
+        "prefix": "rlt",
         "styles": [
           "styles.css"
         ],
@@ -30,6 +32,7 @@
       },
       {
         "platform": "server",
+        "name": "server",
         "root": "src",
         "outDir": "dist/server",
         "assets": [
@@ -41,7 +44,7 @@
         "test": "test.ts",
         "tsconfig": "tsconfig.server.json",
         "testTsconfig": "tsconfig.spec.json",
-        "prefix": "app",
+        "prefix": "rlt",
         "styles": [
           "styles.css"
         ],

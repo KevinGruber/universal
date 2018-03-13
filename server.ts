@@ -3,6 +3,7 @@ import 'reflect-metadata';
 import {enableProdMode} from '@angular/core';
 
 import * as express from 'express';
+import * as compression from 'compression';
 import {join} from 'path';
 import {readFileSync} from 'fs';
 
@@ -34,12 +35,92 @@ app.engine('html', ngExpressEngine({
   ]
 }));
 
+app.use(compression({filter: shouldCompress}))
+
+function shouldCompress (req, res) {
+  if (req.headers['x-no-compression']) {
+    // don't compress responses with this request header
+    return false
+  }
+
+  // fallback to standard filter function
+  return compression.filter(req, res)
+}
+
 app.set('view engine', 'html');
 app.set('views', join(DIST_FOLDER, 'browser'));
 
-/* - Example Express Rest API endpoints -
-  app.get('/api/**', (req, res) => { });
-*/
+
+// - Example Express Rest API endpoints -
+app.get('/jsapi/v1/product/:code', (req, res) => {
+  const {code} = req.params;
+  console.log('code  ', code);
+  switch (code) {
+    case "12345":
+      res.send({
+        code: 12345,
+        name: "iPhone5",
+        brand: "Apple",
+        price: {
+          price: 800.00,
+          formatedPrice: "EUR 800.00"
+        },
+        image: "http://lorempixel.com/640/480/technics/1"
+      });
+    default:
+      res.send({
+        code: 12234,
+        name: "iPadAir3",
+        brand: "Apple",
+        price: {
+          price: 1200.00,
+          formatedPrice: "EUR 1200.00"
+        },
+        image: "http://lorempixel.com/640/480/technics/2"
+      })
+  }
+});
+
+// - Example Express Rest API endpoints -
+app.get('/jsapi/v1/cart/:cartId', (req, res) => {
+  const cartId = req.params;
+  res.send({
+    cardId: cartId,
+    products: [
+      {
+        code: 12345,
+        name: "iPhone5",
+        brand: "Apple",
+        price: {
+          price: 800.00,
+          formatedPrice: "EUR 800.00"
+        },
+        image: "http://lorempixel.com/640/480/technics/1"
+      }
+    ]
+  })
+});
+
+// - Example Express Rest API endpoints -
+app.post('/jsapi/v1/cart/:cartId', (req, res) => {
+  const cartId = req.params;
+  const { amount, code } = req.payload;
+  res.send({
+    cardId: cartId,
+    products: [
+      {
+        code: 12345,
+        name: "iPhone5",
+        brand: "Apple",
+        price: {
+          price: 800.00,
+          formatedPrice: "EUR 800.00"
+        },
+        image: "http://lorempixel.com/640/480/technics/1"
+      }
+    ]
+  })
+});
 
 // Server static files from /browser
 app.get('*.*', express.static(join(DIST_FOLDER, 'browser'), {
