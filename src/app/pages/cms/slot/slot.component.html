@@ -1,0 +1,7 @@
+<ng-template [ngIf]="slot && slot.visible">
+  <h1>
+    {{ slot.text }}
+  </h1>
+  <img [src]="slot.image?.url" />
+  <rlt-slot *ngFor="let child of slot.slots" [slot]="child"></rlt-slot>
+</ng-template>

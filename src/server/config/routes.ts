@@ -5,6 +5,11 @@ export default [
 		controller: 'ProductController.index'
 	},
 	{
+		path: '/jsapi/v1/cms/:cmsPageId',
+		method: 'get',
+		controller: 'CMSController.index'
+	},
+	{
 		path: '/jsapi/v1/cart/:cartId',
 		method: 'get',
 		controller: 'CartController.get'

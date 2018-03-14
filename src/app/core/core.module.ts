@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatToolbarModule, MatIconModule, MatCommonModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatCommonModule, MatBadgeModule, MatButtonModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ToolbarComponent } from './toolbar/toolbar.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { CartService } from './services/cart/cart.service';
+import { ProductComponent } from './components/product/product.component';
+import { CMSService } from './services/cms/cms.service';
 
 @NgModule({
   imports: [
@@ -10,13 +13,18 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     FlexLayoutModule,
     MatCommonModule,
     MatIconModule,
+    MatBadgeModule,
+    MatButtonModule,
     MatToolbarModule
   ],
   declarations: [
-    ToolbarComponent
+    ToolbarComponent,
+    ProductComponent
   ],
   exports: [
-    ToolbarComponent
-  ]
+    ToolbarComponent,
+    ProductComponent
+  ],
+  providers: [CartService, CMSService]
 })
 export class CoreModule { }

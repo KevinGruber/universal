@@ -1,0 +1,3 @@
+<ng-template ngFor let-slot [ngForOf]="(cms$|async)?.slots">
+  <rlt-slot [slot]="slot"></rlt-slot>
+</ng-template>

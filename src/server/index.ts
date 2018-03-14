@@ -4,7 +4,10 @@ import 'reflect-metadata';
 (global as any).XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
 import * as Express from 'express';
-import { enableProdMode } from '@angular/core';
+import { enableProdMode, ValueProvider } from '@angular/core';
+import { renderModuleFactory } from '@angular/platform-server';
+import { REQUEST, RESPONSE } from '@nguniversal/express-engine';
+
 import { Server } from './modules/server';
 import { readFileSync } from 'fs';
 import { join } from 'path';
@@ -24,21 +27,33 @@ server.app.set('views', join(DIST_FOLDER, 'browser'));
 
 const template = readFileSync(join(DIST_FOLDER, 'browser', 'index.html')).toString();
 
-server.app.engine('html', ngExpressEngine({
-  bootstrap: AppServerModuleNgFactory,
-  providers: [
-    provideModuleMap(LAZY_MODULE_MAP)
-  ]
-}));
+server.app.engine('html', (_, options, callback) => {
+  renderModuleFactory(AppServerModuleNgFactory, {
+    document: template,
+    url: options.req.url,
+    extraProviders: [
+      <ValueProvider>{
+        provide: REQUEST,
+        useValue: options.req
+      },
+      <ValueProvider>{
+        provide: RESPONSE,
+        useValue: options.req.res,
+      },
+      provideModuleMap(LAZY_MODULE_MAP)
+    ]
+  }).then(html => {
+    callback(null, html);
+  });
+});
 
 server.app.get('*.*', Express.static(join(DIST_FOLDER, 'browser'), {
   maxAge: '1y'
 }));
 
 server.app.get('*', (req, res, next) => {
-  console.log(req.url, 'into index');
   if (req.url.startsWith('/jsapi')) { return next(); }
-  res.render('index', { req });
+  res.render('index', { req, res });
 });
 
 server.start();

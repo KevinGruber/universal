@@ -17,6 +17,7 @@ export class Server {
 
   configure() {
     this.config = {
+      env: process.env.NODE_ENV || WebConfig.env,
       port: process.env.PORT || WebConfig.port
     };
 

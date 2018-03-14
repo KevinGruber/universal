@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Product } from '../shared/product';
+import { Product } from '../../shared/product';
+import { environment } from '../../../environments/environment';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'rlt-home',
@@ -10,16 +12,17 @@ export class HomeComponent implements OnInit {
   public message: string;
   public product: Product;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private title: Title) { }
 
   ngOnInit() {
     this.message = 'Hello';
-    this.http.get<Product>(`jsapi/v1/product/12345`).subscribe(
+    this.title.setTitle("Home Component");
+    this.http.get<Product>(`${environment.server}/v1/product/12345`).subscribe(
       product => {
         this.product = product;
       },
       (error: HttpErrorResponse) => {
-        console.error('cant get product', error.error, error.name, error.status, error.statusText, error.type, error.url);
+        console.error('cant get product', error.name);
       }
     );
   }

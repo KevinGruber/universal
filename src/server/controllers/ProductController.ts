@@ -2,7 +2,6 @@
 export class ProductController {
 	static index(req, res) {
 		const { code } = req.params;
-		console.log(req.url, 'error');
 		switch (code) {
 			case '12345':
 				return res.json({
