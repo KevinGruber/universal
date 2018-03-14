@@ -5,8 +5,8 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    "server": './src/server/index.ts',
-    "prerender": './src/server/prerender/prerender.ts'
+    "server": './index.ts',
+    "prerender": './prerender/prerender.ts'
   },
   target: 'node',
   resolve: {

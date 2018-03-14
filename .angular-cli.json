@@ -1,13 +1,13 @@
 {
     "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
     "project": {
-      "name": "ng-shop-post"
+      "name": "ng-shop"
     },
     "apps": [
       {
         "platform": "browser",
         "name": "browser",
-        "root": "src",
+        "root": "src/client",
         "outDir": "dist/browser",
         "assets": [
           "assets",
@@ -33,7 +33,7 @@
       {
         "platform": "server",
         "name": "server",
-        "root": "src",
+        "root": "src/client",
         "outDir": "dist/server",
         "assets": [
           "assets",
@@ -63,7 +63,7 @@
     },
     "lint": [
       {
-        "project": "src/tsconfig.app.json",
+        "project": "src/client/tsconfig.app.json",
         "exclude": "**/node_modules/**"
       }
     ],

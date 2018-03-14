@@ -1,12 +1,12 @@
+import { Service } from '../../module/service';
 
-export class CMSController {
-	static index(req, res) {
-		const { cmsPageId } = req.params;
-		let response = {};
-		switch (cmsPageId) {
+export class CMSService extends Service {
+
+	findByPageId(pageId: string) {
+		switch (pageId) {
 			case "content1":
-				response = {
-					id: cmsPageId,
+				return {
+					id: pageId,
 					slots: [
 						{
 							type: "text_image",
@@ -45,10 +45,9 @@ export class CMSController {
 						}
 					]
 				};
-				break;
 			case "content2":
-				response = {
-					id: cmsPageId,
+				return {
+					id: pageId,
 					slots: [
 						{
 							type: "text_image",
@@ -60,14 +59,12 @@ export class CMSController {
 						}
 					]
 				};
-				break;
 			default:
-				response = {
+				return {
 					id: '-1',
 					slots: []
 				}
-		}
-		return res.json(response)
 
+		}
 	}
 }

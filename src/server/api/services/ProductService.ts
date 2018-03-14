@@ -1,10 +1,11 @@
+import { Service } from '../../module/service';
 
-export class ProductController {
-	static index(req, res) {
-		const { code } = req.params;
+export class ProductService extends Service {
+	
+	findById(code) {
 		switch (code) {
 			case '12345':
-				return res.json({
+				return {
 					code: 12345,
 					name: 'iPhone5',
 					brand: 'Apple',
@@ -15,9 +16,9 @@ export class ProductController {
 					image: {
 						url: 'http://via.placeholder.com/350x150'
 					}
-				});
+				};
 			default:
-				return res.json({
+				return {
 					code: 12234,
 					name: 'iPadAir3',
 					brand: 'Apple',
@@ -28,7 +29,7 @@ export class ProductController {
 					image: {
 						url: 'http://via.placeholder.com/350x150'
 					}
-				});
+				};
 		}
 	}
 }
