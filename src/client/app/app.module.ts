@@ -1,32 +1,32 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 import { PrebootModule } from 'preboot';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
-import { TransferHttpCacheModule } from '@nguniversal/common';
 import { CoreModule } from './core/core.module';
-import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-  ],
-  imports: [
-    BrowserModule.withServerTransition({ appId: 'rialto-app' }),
-    PrebootModule.withConfig({
-      appRoot: 'rlt-root',
-      buffer: false
-    }),
-    AppRoutingModule,
-    CoreModule,
-    HttpClientModule,
-    TransferHttpCacheModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent
+    ],
+    imports: [
+        BrowserModule.withServerTransition({appId: 'rialto-app'}),
+        PrebootModule.withConfig({
+            appRoot: 'rlt-root',
+            buffer: false
+        }),
+        AppRoutingModule,
+        CoreModule,
+        HttpClientModule,
+        TransferHttpCacheModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

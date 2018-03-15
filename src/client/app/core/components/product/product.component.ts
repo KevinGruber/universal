@@ -1,12 +1,12 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { Product } from '../../../shared/product';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Product } from 'app/shared/product';
 
 @Component({
-  selector: 'rlt-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'rlt-product',
+    templateUrl: './product.component.html',
+    styleUrls: ['./product.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductComponent {
-  @Input() product: Product;
+    @Input() product: Product;
 }

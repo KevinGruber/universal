@@ -1,4 +1,4 @@
 export const environment = {
-  production: true,
-  server: 'http://localhost:3101/jsapi'
+    production: true,
+    server: 'http://localhost:3101/jsapi'
 };

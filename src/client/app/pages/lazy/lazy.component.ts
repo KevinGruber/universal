@@ -1,15 +1,15 @@
-import { NgModule, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-	selector: 'rlt-lazy-view',
-	templateUrl: './lazy.component.html'
+    selector: 'rlt-lazy-view',
+    templateUrl: './lazy.component.html'
 })
 export class LazyComponent implements OnInit {
 
-	constructor(private title: Title) { }
+    constructor(private title: Title) { }
 
-	ngOnInit() {
-		this.title.setTitle("Lazy Component");
-	}
+    ngOnInit() {
+        this.title.setTitle('Lazy Component');
+    }
 }

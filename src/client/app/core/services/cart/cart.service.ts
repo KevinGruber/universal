@@ -1,39 +1,39 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Cart } from '../../../shared/cart';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { delay } from 'rxjs/operators/delay';
+import { retry } from 'rxjs/operators/retry';
+import { tap } from 'rxjs/operators/tap';
 import { environment } from '../../../../environments/environment';
-import { tap } from "rxjs/operators/tap";
-import { retry } from "rxjs/operators/retry";
-import { delay } from "rxjs/operators/delay";
+import { Cart } from '../../../shared/cart';
 
 @Injectable()
 export class CartService {
-  private _cart: Cart;
-  private cart$: Observable<Cart>;
+    private cart$: Observable<Cart>;
+    public productsInCart: number = 0;
 
-  public productsInCart: number = 0;
+    constructor(private http: HttpClient) { }
 
-  constructor(private http: HttpClient) { }
+    private _cart: Cart;
 
-  get cart(): Cart {
-    if (!this._cart) {
-      return {
-        cartId: '-1',
-        products: []
-      };
+    get cart(): Cart {
+        if (!this._cart) {
+            return {
+                cartId: '-1',
+                products: []
+            };
+        }
+        return this._cart;
     }
-    return this._cart;
-  }
 
-  getCart(cartId: string) {
-    return this.http.get<Cart>(`${environment.server}/v1/cart/${cartId}`).pipe(
-      tap((cart) => {
-        this._cart = cart;
-        this.productsInCart = cart.products.length;
-      }, delay(2000)),
-      retry(3)
-    )
-  }
+    getCart(cartId: string) {
+        return this.http.get<Cart>(`${environment.server}/v1/cart/${cartId}`).pipe(
+            tap((cart) => {
+                this._cart = cart;
+                this.productsInCart = cart.products.length;
+            }, delay(2000)),
+            retry(3)
+        );
+    }
 
 }

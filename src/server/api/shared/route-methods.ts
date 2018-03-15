@@ -1,1 +1,0 @@
-export type IRouteMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
