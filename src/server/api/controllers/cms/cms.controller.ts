@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { Controller } from '../../module/controller';
-import { CMSService } from '../services/CMSService';
+import { Controller } from '../../../module/classes/controller';
+import { CMSService } from '../../services';
 
 export class CMSController extends Controller {
     private cmsService: CMSService;

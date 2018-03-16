@@ -6,17 +6,19 @@ import * as BodyParser from 'body-parser';
 import * as Compression from 'compression';
 import * as Express from 'express';
 import { readFileSync } from 'fs';
+import * as http from 'http';
 import { isEmpty, merge } from 'lodash';
 import { join } from 'path';
+
 import 'reflect-metadata';
 // Angular Specific Stuff
 import 'zone.js/dist/zone-node';
-import * as Controllers from '../api/controllers';
-import * as Services from '../api/services';
-import { IAppConfig } from '../api/types/app-config';
-import { IController } from '../api/types/controller';
-import IRouteConfig from '../api/types/route-config';
-import { IService } from '../api/types/service';
+import * as Controllers from '../../api/controllers/index';
+import * as Services from '../../api/services/index';
+import { IAppConfig } from '../../api/types/app-config';
+import { IController } from '../../api/types/controller';
+import IRouteConfig from '../../api/types/route-config';
+import { IService } from '../../api/types/service';
 
 const DIST_FOLDER = join(process.cwd(), 'dist');
 
@@ -27,20 +29,29 @@ const DIST_FOLDER = join(process.cwd(), 'dist');
  */
 export class Server {
 
-    public express: Express.Application;
-    public config: IAppConfig;
-    public log: any;
-    public services: { [name: string]: IService };
-    public controllers: { [name: string]: IController };
+    private server: http.Server;
+    private readonly express: Express.Application;
 
     constructor() {
-        this.controllers = {};
-        this.services = {};
-        this.log = {};
+        this._controllers = {};
+        this._services = {};
+        this._log = {};
 
         this.express = Express();
 
         this.configure();
+    }
+
+    protected _config: IAppConfig;
+
+    public get config() {
+        return this._config;
+    }
+
+    protected _services: { [name: string]: IService };
+
+    public get services() {
+        return this._services;
     }
 
     public static mergeConfig(): IAppConfig {
@@ -73,9 +84,20 @@ export class Server {
         return 'dev';
     }
 
+    protected _controllers: { [name: string]: IController };
 
-    configure() {
-        this.config = Server.mergeConfig();
+    public get controllers() {
+        return this._controllers;
+    }
+
+    protected _log: any;
+
+    public get log() {
+        return this._log;
+    }
+
+    private configure() {
+        this._config = Server.mergeConfig();
 
         this.express.use(BodyParser.urlencoded({extended: false}));
         this.express.use(BodyParser.json());
@@ -94,7 +116,7 @@ export class Server {
         this.registerRoutes();
     }
 
-    registerRoutes() {
+    private registerRoutes() {
         this.config.server.routes.forEach((route: IRouteConfig) => {
             const handler = route.handler.split('.');
             const handlerName = handler[0];
@@ -106,21 +128,21 @@ export class Server {
         });
     }
 
-    registerServices() {
+    private registerServices() {
         Object.keys(Services).forEach(service => {
             const ServiceInstance = new Services[service](this, this.express);
             this.services[ServiceInstance.id] = ServiceInstance;
         });
     }
 
-    registerController() {
+    private registerController() {
         Object.keys(Controllers).forEach(controller => {
             const ControllerInstance = new Controllers[controller](this);
             this.controllers[ControllerInstance.id] = ControllerInstance;
         });
     }
 
-    registerSSR() {
+    public registerSSR() {
         this.express.set('view engine', 'html');
         this.express.set('views', join(DIST_FOLDER, 'browser'));
         const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require(join(DIST_FOLDER, 'server/main.bundle'));
@@ -163,15 +185,18 @@ export class Server {
         });
     }
 
-    start() {
-        this.express.listen(this.config.server.web.port, this.config.server.web.host, () => {
+    public start(nolog?: boolean) {
+        this.server = this.express.listen(this.config.server.web.port, this.config.server.web.host, () => {
+            if (nolog) {
+                return;
+            }
             console.log('--------------------------------------------------------------------------------');
-            console.log('#################################  NG SHOP  ####################################');
-            console.log('--------------------------------------------------------------------------------');
-            console.log(`########### Node Express server listening on http://${this.config.server.web.host}:${this.config.server.web.port} #############`);
-            console.log('--------------------------------------------------------------------------------');
-            console.log('################################################################################');
+            console.log(`----------- Node Express server listening on http://${this.config.server.web.host}:${this.config.server.web.port} -------------`);
             console.log('--------------------------------------------------------------------------------');
         });
+    }
+
+    public stop() {
+        this.server.close();
     }
 }

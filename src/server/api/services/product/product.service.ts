@@ -1,8 +1,7 @@
-import { Service } from '../../module/service';
+import { Service } from '../../../module/classes/service';
 
 export class ProductService extends Service {
 
-    // noinspection JSMethodCanBeStatic
     findById(code) {
         switch (code) {
             case '12345':
@@ -18,9 +17,9 @@ export class ProductService extends Service {
                         url: 'http://via.placeholder.com/350x150'
                     }
                 };
-            default:
+            case '12245':
                 return {
-                    code: 12234,
+                    code: 12245,
                     name: 'iPadAir3',
                     brand: 'Apple',
                     price: {
@@ -31,6 +30,8 @@ export class ProductService extends Service {
                         url: 'http://via.placeholder.com/350x150'
                     }
                 };
+            default:
+                return null;
         }
     }
 }

@@ -7,6 +7,11 @@ export const environment = {
     routes: [
         {
             method: 'GET',
+            path: '/status',
+            handler: 'HomeController.index'
+        },
+        {
+            method: 'GET',
             path: '/jsapi/v1/product/:code',
             handler: 'ProductController.index'
         },
@@ -18,12 +23,22 @@ export const environment = {
         {
             method: 'GET',
             path: '/jsapi/v1/cart/:cartId',
-            handler: 'CartController.get'
+            handler: 'CartController.getCart'
+        },
+        {
+            method: 'DELETE',
+            path: '/jsapi/v1/cart/:cartId',
+            handler: 'CartController.deleteCart'
         },
         {
             method: 'POST',
-            path: '/jsapi/v1/cart/:cartId',
-            handler: 'CartController.post'
+            path: '/jsapi/v1/cart/:cartId/entry',
+            handler: 'CartController.postEntry'
+        },
+        {
+            method: 'DELETE',
+            path: '/jsapi/v1/cart/:cartId/entry',
+            handler: 'CartController.deleteEntry'
         }
     ]
 };

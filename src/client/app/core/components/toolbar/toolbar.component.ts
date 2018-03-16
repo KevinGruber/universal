@@ -12,19 +12,20 @@ import { CartService } from '../../services/cart/cart.service';
     ]
 })
 export class ToolbarComponent implements OnInit {
-    @Input() title = 'Test Shop';
 
+    @Input() title = 'Test Shop';
     public cart$: Observable<Cart>;
+    public cartID: string = '451-5658-5626-895';
+
 
     constructor(private cartService: CartService, private router: Router) { }
 
     ngOnInit() {
-        this.cart$ = this.cartService.getCart('1');
+        this.cart$ = this.cartService.getCart(this.cartID);
     }
 
     openCart() {
-        // alert(`Cart opened with ${this.cartService.productsInCart} products and id: ${this.cartService.cart.cartId}`)
-        this.router.navigate(['/cart']);
+        this.router.navigate(['/cart', this.cartID]);
     }
 
 }

@@ -1,13 +1,13 @@
 import IRouteConfig from './route-config';
 
 export interface IAppConfig {
-    client: any,
+    client: any;
     server: {
-        env: string,
+        env: string;
         web: {
-            host: string,
-            port: number
+            host: string;
+            port: number;
         },
-        routes: Array<IRouteConfig>
+        routes: Array<IRouteConfig>;
     };
 }

@@ -11,7 +11,7 @@ const routes: Routes = [
         component: HomeComponent
     },
     {
-        path: 'cart', loadChildren: './pages/cart/cart.module#CartModule',
+        path: 'cart/:id', loadChildren: './pages/cart/cart.module#CartModule',
         resolve: {
             cart: CartResolve
         }

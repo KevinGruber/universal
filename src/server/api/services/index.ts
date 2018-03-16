@@ -1,3 +1,3 @@
-export { CartService } from './CartService';
-export { ProductService } from './ProductService';
-export { CMSService } from './CMSService';
+export { CMSService } from './cms/cms.service';
+export { ProductService } from './product/product.service';
+export { CartService } from './cart/cart.service';

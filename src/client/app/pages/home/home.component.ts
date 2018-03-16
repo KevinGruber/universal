@@ -1,8 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { environment } from '../../../environments/environment';
-import { Product } from '../../shared/product';
+import { Product } from 'app/shared/product';
+import { environment } from 'environments/environment';
 
 @Component({
     selector: 'rlt-home',

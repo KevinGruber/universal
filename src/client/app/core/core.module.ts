@@ -23,7 +23,8 @@ import { CMSService } from './services/cms/cms.service';
     ],
     exports: [
         ToolbarComponent,
-        ProductComponent
+        ProductComponent,
+        MatButtonModule
     ],
     providers: [CartService, CMSService]
 })

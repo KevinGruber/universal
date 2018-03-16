@@ -71,7 +71,8 @@
     "no-eval": true,
     "no-inferrable-types": [
       true,
-      "ignore-params"
+      "ignore-params",
+      "ignore-properties"
     ],
     "no-misused-new": true,
     "no-non-null-assertion": true,
@@ -80,8 +81,6 @@
     "no-string-throw": true,
     "no-switch-case-fall-through": true,
     "no-trailing-whitespace": true,
-    "no-unnecessary-initializer": true,
-    "no-unused-expression": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from 'app/core/services/cart/cart.service';
+import { Cart } from 'app/shared/cart';
 import { Observable } from 'rxjs/Observable';
 
 import { map } from 'rxjs/operators/map';
-import { CartService } from '../../core/services/cart/cart.service';
-import { Cart } from '../../shared/cart';
 
 @Component({
     selector: 'rlt-cart',
@@ -18,11 +18,10 @@ export class CartComponent implements OnInit {
                 private route: ActivatedRoute) { }
 
     ngOnInit() {
-        this.cart$ = this.route.data
-            .pipe(
-                map((data: { cart: Cart }) => {
-                    return data.cart;
-                }));
+        this.cart$ = this.route.data.pipe(
+            map((data: { cart: Cart }) => {
+                return data.cart;
+            }));
     }
 
 }

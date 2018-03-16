@@ -1,6 +1,7 @@
-import { Server } from './server';
+import { Server } from '../../server/server';
 
-export class Controller {
+export class Service {
+
     constructor(private app: Server) {}
 
     get id() {
