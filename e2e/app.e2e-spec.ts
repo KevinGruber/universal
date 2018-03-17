@@ -1,6 +1,7 @@
-import { AppPage } from 'app.po';
+// noinspection TypeScriptPreferShortImport
+import { AppPage } from './app.po';
 
-describe('app-test App', () => {
+describe('rlt-test App', () => {
     let page: AppPage;
 
     beforeEach(() => {
@@ -9,6 +10,11 @@ describe('app-test App', () => {
 
     it('should display welcome message', () => {
         page.navigateTo();
-        expect(page.getParagraphText()).toEqual('Welcome to app!');
+        expect(page.getMessageText()).toEqual('Hello');
+    });
+
+    it('should display product heading', () => {
+        page.navigateTo();
+        expect(page.getProductText()).toEqual('Product 2');
     });
 });

@@ -15,6 +15,7 @@
     "test": "ng test",
     "test:server": "ts-mocha src/server/**/*.spec.ts",
     "lint": "ng lint --fix",
+    "e2e": "ng e2e",
     "start": "npm-run-all --parallel serve:server serve",
     "serve": "ng serve",
     "serve:server": "ts-node-dev --respawn src/server/proxy --env=prod",

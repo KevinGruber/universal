@@ -1,7 +1,6 @@
 {
   "/jsapi": {
     "target": "http://localhost:3101",
-    "secure": false,
-    "logLevel": "debug"
+    "secure": false
   }
 }

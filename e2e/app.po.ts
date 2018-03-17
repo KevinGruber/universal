@@ -1,13 +1,15 @@
 import { browser, by, element } from 'protractor';
 
 export class AppPage {
-    // noinspection JSMethodCanBeStatic
     navigateTo() {
         return browser.get('/');
     }
 
-    // noinspection JSMethodCanBeStatic
-    getParagraphText() {
-        return element(by.css('app-root h1')).getText();
+    getMessageText() {
+        return element(by.css('rlt-root h3')).getText();
+    }
+
+    getProductText() {
+        return element(by.css('rlt-root h1')).getText();
     }
 }
