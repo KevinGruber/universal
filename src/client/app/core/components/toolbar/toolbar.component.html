@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+    <span>{{ title }}</span>
+    <div class="spacer"></div>
+    <button mat-icon-button class="icon" (click)="openCart()">
+        <mat-icon [matBadge]="(cart$|async)?.products.length"
+                  matBadgeOverlap="true"
+                  matBadgePosition="above after">shopping_cart
+        </mat-icon>
+    </button>
+</mat-toolbar>
