@@ -20,8 +20,16 @@ describe('HomeComponent', () => {
     }));
     it('should render Welcome message in a h1 tag', async(() => {
         const fixture = TestBed.createComponent(HomeComponent);
-        fixture.detectChanges();
         const compiled = fixture.debugElement.nativeElement;
         expect(compiled.querySelector('h1').textContent).toContain('Product 2');
+    }));
+    it('should show a welcome message', async(() => {
+        const fixture = TestBed.createComponent(HomeComponent);
+        fixture.detectChanges();
+        fixture.whenStable().then(() => {
+            const compiled = fixture.debugElement.nativeElement;
+            const h3Tag = compiled.querySelector('h3');
+            expect(h3Tag.textContent).toContain('Hello');
+        });
     }));
 });

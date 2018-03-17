@@ -20,8 +20,17 @@ describe('AppComponent', () => {
     }));
     it('should show 5 Nav Buttons', async(() => {
         const fixture = TestBed.createComponent(AppComponent);
-        fixture.detectChanges();
         const compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector('a').length).toEqual(5);
+        const navContainer = compiled.querySelector('.nav-buttons');
+        const aTags = navContainer.querySelectorAll('a');
+        expect(aTags.length).toBe(5);
+    }));
+    it('should have a Home Link', async(() => {
+        const fixture = TestBed.createComponent(AppComponent);
+        const compiled = fixture.debugElement.nativeElement;
+        const navContainer = compiled.querySelector('.nav-buttons');
+        const aTags = navContainer.querySelectorAll('a');
+        const homeLink = Array.from(aTags).find((t: Node) => t.textContent === 'Home');
+        expect(homeLink).not.toBeNull();
     }));
 });
