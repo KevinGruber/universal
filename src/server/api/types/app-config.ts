@@ -1,4 +1,4 @@
-import IRouteConfig from './route-config';
+import { IRouteConfig } from './route-config';
 
 export interface IAppConfig {
     client: any;

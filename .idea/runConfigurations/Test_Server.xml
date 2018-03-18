@@ -2,12 +2,12 @@
   <configuration default="false" name="Test Server" type="mocha-javascript-test-runner" factoryName="Mocha">
     <node-interpreter>project</node-interpreter>
     <node-options />
-    <working-directory>$PROJECT_DIR$</working-directory>
+    <working-directory>$PROJECT_DIR$/src/server</working-directory>
     <pass-parent-env>true</pass-parent-env>
     <ui>bdd</ui>
     <extra-mocha-options>--require ts-node/register --recursive</extra-mocha-options>
     <test-kind>PATTERN</test-kind>
-    <test-pattern>src/server/**/*.spec.ts</test-pattern>
+    <test-pattern>**/*.spec.ts</test-pattern>
     <method />
   </configuration>
 </component>

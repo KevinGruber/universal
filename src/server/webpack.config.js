@@ -3,20 +3,24 @@
 const path = require('path');
 // noinspection NpmUsedModulesInstalled
 const webpack = require('webpack');
-
 // noinspection JSUnresolvedFunction
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+
 module.exports = {
     entry: {
-        "server": './index.ts',
-        "prerender": './prerender/prerender.ts'
+        "server": path.join(__dirname, './index.ts'),
+        "prerender": path.join(__dirname, './prerender/prerender.ts')
     },
     target: 'node',
     resolve: {
-        extensions: ['.ts', '.js']
+        extensions: ['.ts', '.js'],
+        plugins: [new TsconfigPathsPlugin({
+            configFile: path.join(__dirname, './src/server/tsconfig.json')
+        })]
     },
     externals: [/(node_modules|main\..*\.js)/,],
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, '../../', 'dist'),
         filename: '[name].js'
     },
     module: {
@@ -28,11 +32,11 @@ module.exports = {
     plugins: [
         new webpack.ContextReplacementPlugin(
             /(.+)?angular(\\|\/)core(.+)?/,
-            path.join(__dirname, 'src'), {}
+            path.join(__dirname, '../../src/client'), {}
         ),
         new webpack.ContextReplacementPlugin(
             /(.+)?express(\\|\/)(.+)?/,
-            path.join(__dirname, 'src'), {}
+            path.join(__dirname, '../../src/client'), {}
         )
     ]
 };

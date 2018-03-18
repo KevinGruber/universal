@@ -1,8 +1,9 @@
 import * as expect from 'expect';
-import { Server } from '../../server';
+import { ServerMock } from 'module/server';
 import { Service } from './service';
 
-const server = new Server();
+const server = new ServerMock();
+server.init();
 
 describe('Service Class Testing', () => {
 

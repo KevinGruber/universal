@@ -13,12 +13,12 @@ import { join } from 'path';
 import 'reflect-metadata';
 // Angular Specific Stuff
 import 'zone.js/dist/zone-node';
-import * as Controllers from '../../api/controllers/index';
-import * as Services from '../../api/services/index';
-import { IAppConfig } from '../../api/types/app-config';
-import { IController } from '../../api/types/controller';
-import IRouteConfig from '../../api/types/route-config';
-import { IService } from '../../api/types/service';
+import * as Controllers from 'api/controllers';
+import * as Services from 'api/services';
+import { IAppConfig } from 'api/types/app-config';
+import { IController } from 'api/types/controller';
+import { IRouteConfig } from 'api/types/route-config';
+import { IService } from 'api/types/service';
 
 const DIST_FOLDER = join(process.cwd(), 'dist');
 
@@ -29,18 +29,8 @@ const DIST_FOLDER = join(process.cwd(), 'dist');
  */
 export class Server {
 
-    private server: http.Server;
-    private readonly express: Express.Application;
-
-    constructor() {
-        this._controllers = {};
-        this._services = {};
-        this._log = {};
-
-        this.express = Express();
-
-        this.configure();
-    }
+    protected server: http.Server;
+    protected express: Express.Application;
 
     protected _config: IAppConfig;
 
@@ -54,7 +44,30 @@ export class Server {
         return this._services;
     }
 
-    public static mergeConfig(): IAppConfig {
+    protected _controllers: { [name: string]: IController };
+
+    public get controllers() {
+        return this._controllers;
+    }
+
+    protected _log: any;
+
+    public get log() {
+        return this._log;
+    }
+
+    constructor() {
+        this._controllers = {};
+        this._services = {};
+        this._log = {};
+    }
+
+    protected _init() {
+        this.express = Express();
+        this.configure();
+    }
+
+    protected mergeConfig(): IAppConfig {
         const cwd = process.cwd();
         const cli = require(join(cwd, '.angular-cli.json'));
         const environmentBasePath = cli.apps[0].environmentSource;
@@ -75,29 +88,8 @@ export class Server {
         };
     }
 
-    public static getEnvironment() {
-        const envArg = process.argv.find(a => a.includes('env'));
-        const value = Array.isArray(envArg) && envArg.split('=');
-        if (!isEmpty(value)) {
-            return value[1];
-        }
-        return 'dev';
-    }
-
-    protected _controllers: { [name: string]: IController };
-
-    public get controllers() {
-        return this._controllers;
-    }
-
-    protected _log: any;
-
-    public get log() {
-        return this._log;
-    }
-
-    private configure() {
-        this._config = Server.mergeConfig();
+    protected configure() {
+        this._config = this.mergeConfig();
 
         this.express.use(BodyParser.urlencoded({extended: false}));
         this.express.use(BodyParser.json());
@@ -116,7 +108,23 @@ export class Server {
         this.registerRoutes();
     }
 
-    private registerRoutes() {
+    protected _start(nolog?: boolean) {
+        this.server = this.express.listen(this.config.server.web.port, this.config.server.web.host, () => {
+            if (nolog) {
+                return;
+            }
+            console.log('--------------------------------------------------------------------------------');
+            console.log(`----------- Node Express server listening on http://${this.config.server.web.host}:${this.config.server.web.port} -------------`);
+            console.log('--------------------------------------------------------------------------------');
+        });
+    }
+
+    protected _stop() {
+        this.server.close();
+        console.log('Stop Server');
+    }
+
+    protected registerRoutes() {
         this.config.server.routes.forEach((route: IRouteConfig) => {
             const handler = route.handler.split('.');
             const handlerName = handler[0];
@@ -128,21 +136,21 @@ export class Server {
         });
     }
 
-    private registerServices() {
+    protected registerServices() {
         Object.keys(Services).forEach(service => {
             const ServiceInstance = new Services[service](this, this.express);
             this.services[ServiceInstance.id] = ServiceInstance;
         });
     }
 
-    private registerController() {
+    protected registerController() {
         Object.keys(Controllers).forEach(controller => {
             const ControllerInstance = new Controllers[controller](this);
             this.controllers[ControllerInstance.id] = ControllerInstance;
         });
     }
 
-    public registerSSR() {
+    protected _registerSSR() {
         this.express.set('view engine', 'html');
         this.express.set('views', join(DIST_FOLDER, 'browser'));
         const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require(join(DIST_FOLDER, 'server/main.bundle'));
@@ -185,18 +193,28 @@ export class Server {
         });
     }
 
+    public static getEnvironment() {
+        const envArg = process.argv.find(a => a.includes('env'));
+        const value = Array.isArray(envArg) && envArg.split('=');
+        if (!isEmpty(value)) {
+            return value[1];
+        }
+        return 'dev';
+    }
+
+    public init() {
+        this._init();
+    }
+
+    public registerSSR() {
+        this._registerSSR();
+    }
+
     public start(nolog?: boolean) {
-        this.server = this.express.listen(this.config.server.web.port, this.config.server.web.host, () => {
-            if (nolog) {
-                return;
-            }
-            console.log('--------------------------------------------------------------------------------');
-            console.log(`----------- Node Express server listening on http://${this.config.server.web.host}:${this.config.server.web.port} -------------`);
-            console.log('--------------------------------------------------------------------------------');
-        });
+        this._start(nolog);
     }
 
     public stop() {
-        this.server.close();
+        this._stop();
     }
 }

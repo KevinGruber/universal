@@ -1,8 +1,9 @@
 import * as expect from 'expect';
-import { Server } from '../../server';
+import { ServerMock } from '../../server';
 import { Controller } from './controller';
 
-const server = new Server();
+const server = new ServerMock();
+server.init();
 
 describe('Controller Class Testing', () => {
 

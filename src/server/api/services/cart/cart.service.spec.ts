@@ -1,6 +1,6 @@
 import * as expect from 'expect';
 import * as should from 'should';
-import { Server } from '../../../module/server';
+import { Server } from 'module/server';
 import { CartService } from './cart.service';
 
 const CART_IPHONE = {
@@ -34,7 +34,11 @@ describe('Product Service Testing', () => {
     let cartService;
 
     beforeEach(() => {
-        cartService = new CartService(new Server());
+        // here we need a full server instance because otherwiese the controllers are not
+        // registered maybe in future i will add the controller and service insttiation to the mock
+        const server = new Server();
+        server.init();
+        cartService = new CartService(server);
     });
 
     describe('Get a cart', () => {

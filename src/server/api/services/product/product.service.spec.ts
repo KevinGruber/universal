@@ -1,5 +1,5 @@
 import * as expect from 'expect';
-import { Server } from '../../../module/server';
+import { Server } from 'module/server';
 import { ProductService } from './product.service';
 
 const PRODUCT_IPHONE = {
