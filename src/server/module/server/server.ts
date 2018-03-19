@@ -22,6 +22,8 @@ import { IService } from 'api/types/service';
 
 const DIST_FOLDER = join(process.cwd(), 'dist');
 
+declare const __non_webpack_require__: Function;
+
 /**
  * The server.
  *

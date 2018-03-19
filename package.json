@@ -23,7 +23,7 @@
     "build": "rimraf dist && yarn run build:client && yarn run build:server && yarn run build:ssr",
     "build:client": "ng build --prod",
     "build:server": "ng build --prod --app server --output-hashing=false",
-    "build:ssr": "cd src/server && webpack --config webpack.config.js"
+    "build:ssr": "cd src/server && webpack --config webpack.config.js --progress"
   },
   "private": true,
   "dependencies": {

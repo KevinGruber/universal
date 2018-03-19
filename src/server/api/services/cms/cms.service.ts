@@ -1,4 +1,4 @@
-import { Service } from '../../../module/classes/service';
+import { Service } from 'module/classes/service';
 
 export class CMSService extends Service {
 
