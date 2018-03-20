@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Dev Debug" type="NodeJSConfigurationType" factoryName="Node.js" node-parameters="-r ts-node/register" path-to-js-file="src/server/proxy.ts" working-dir="$PROJECT_DIR$">
+  <configuration default="false" name="Dev Debug" type="NodeJSConfigurationType" factoryName="Node.js" node-parameters="-r ts-node/register -r tsconfig-paths/register" path-to-js-file="proxy.ts" working-dir="$PROJECT_DIR$/src/server">
     <method />
   </configuration>
 </component>

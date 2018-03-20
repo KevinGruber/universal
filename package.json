@@ -13,7 +13,7 @@
   "scripts": {
     "ng": "ng",
     "test": "ng test",
-    "test:server": "ts-mocha src/server/**/*.spec.ts",
+    "test:server": "cd src/server && ts-mocha  -r tsconfig-paths/register **/*.spec.ts",
     "lint": "ng lint --fix",
     "e2e": "ng e2e",
     "start": "npm-run-all --parallel serve:server serve",
@@ -23,7 +23,7 @@
     "build": "rimraf dist && yarn run build:client && yarn run build:server && yarn run build:ssr",
     "build:client": "ng build --prod",
     "build:server": "ng build --prod --app server --output-hashing=false",
-    "build:ssr": "cd src/server && webpack --config webpack.config.js --progress"
+    "build:ssr": "cd src/server && webpack --config webpack.config.js"
   },
   "private": true,
   "dependencies": {

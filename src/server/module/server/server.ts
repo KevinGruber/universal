@@ -22,8 +22,6 @@ import { IService } from 'api/types/service';
 
 const DIST_FOLDER = join(process.cwd(), 'dist');
 
-declare const __non_webpack_require__: Function;
-
 /**
  * The server.
  *
@@ -70,24 +68,9 @@ export class Server {
     }
 
     protected mergeConfig(): IAppConfig {
-        const cwd = process.cwd();
-        const cli = require(join(cwd, '.angular-cli.json'));
-        const environmentBasePath = cli.apps[0].environmentSource;
-        const environmentPath = cli.apps[0].environments[Server.getEnvironment()];
-
-        const {environment: clientBase} = require(join(cwd, 'src/client/', environmentBasePath));
-        const {environment: clientEnv} = require(join(cwd, 'src/client/', environmentPath));
-
-        const {environment: serverBase} = require(join(cwd, 'src/server/', environmentBasePath));
-        const {environment: serverEnv} = require(join(cwd, 'src/server/', environmentPath));
-
-        const mergedClientConfig = merge(clientBase, clientEnv, {cwd});
-        const mergedServerConfig = merge(serverBase, serverEnv, {cwd});
-
-        return {
-            client: mergedClientConfig,
-            server: mergedServerConfig
-        };
+        const {environment: serverBase} = require('environments/environment.ts');
+        // TODO add dynamic Config building or before hand with build step.
+        return merge(serverBase, {});
     }
 
     protected configure() {
@@ -111,12 +94,12 @@ export class Server {
     }
 
     protected _start(nolog?: boolean) {
-        this.server = this.express.listen(this.config.server.web.port, this.config.server.web.host, () => {
+        this.server = this.express.listen(this.config.web.port, this.config.web.host, () => {
             if (nolog) {
                 return;
             }
             console.log('--------------------------------------------------------------------------------');
-            console.log(`----------- Node Express server listening on http://${this.config.server.web.host}:${this.config.server.web.port} -------------`);
+            console.log(`----------- Node Express server listening on http://${this.config.web.host}:${this.config.web.port} -------------`);
             console.log('--------------------------------------------------------------------------------');
         });
     }
@@ -127,7 +110,7 @@ export class Server {
     }
 
     protected registerRoutes() {
-        this.config.server.routes.forEach((route: IRouteConfig) => {
+        this.config.routes.forEach((route: IRouteConfig) => {
             const handler = route.handler.split('.');
             const handlerName = handler[0];
             const actionName = handler[1];
@@ -152,10 +135,10 @@ export class Server {
         });
     }
 
-    protected _registerSSR() {
+    protected _registerSSR(bundle: any) {
         this.express.set('view engine', 'html');
         this.express.set('views', join(DIST_FOLDER, 'browser'));
-        const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require(join(DIST_FOLDER, 'server/main.bundle'));
+        const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = bundle;
 
         enableProdMode();
 
@@ -208,8 +191,8 @@ export class Server {
         this._init();
     }
 
-    public registerSSR() {
-        this._registerSSR();
+    public registerSSR(bundle: any) {
+        this._registerSSR(bundle);
     }
 
     public start(nolog?: boolean) {

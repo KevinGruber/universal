@@ -29,7 +29,7 @@ export class ServerMock extends Server {
             return;
         }
         console.log('--------------------------------------------------------------------------------');
-        console.log(`----------- Node Express server listening on http://${this.config.server.web.host}:${this.config.server.web.port} -------------`);
+        console.log(`----------- Node Express server listening on http://${this.config.web.host}:${this.config.web.port} -------------`);
         console.log('--------------------------------------------------------------------------------');
     }
 
@@ -43,15 +43,12 @@ export class ServerMock extends Server {
 
     protected _mergeConfig(): IAppConfig {
         return {
-            client: {},
-            server: {
-                env: 'mock',
-                web: {
-                    host: '',
-                    port: 1234
-                },
-                routes: []
-            }
+            env: 'mock',
+            web: {
+                host: '',
+                port: 1234
+            },
+            routes: []
         };
     }
 }
