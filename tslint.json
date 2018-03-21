@@ -43,12 +43,12 @@
           "public-static-field",
           "private-instance-field",
           "protected-instance-field",
-          "public-instance-field",
-          "private-static-method",
-          "protected-static-method",
-          "public-static-method",
-          "private-instance-method",
           "protected-instance-method",
+          "protected-static-method",
+          "private-static-method",
+          "private-instance-method",
+          "public-instance-field",
+          "public-static-method",
           "public-instance-method"
         ]
       }

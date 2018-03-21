@@ -95,6 +95,36 @@
           <section>
             <rule>
               <match>
+                <AND>
+                  <PRIVATE>true</PRIVATE>
+                  <PROPERTY>true</PROPERTY>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <PROPERTY>true</PROPERTY>
+                  <PROTECTED>true</PROTECTED>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <PROPERTY>true</PROPERTY>
+                  <PUBLIC>true</PUBLIC>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
                 <CONSTRUCTOR>true</CONSTRUCTOR>
               </match>
             </rule>
@@ -104,17 +134,6 @@
               <match>
                 <AND>
                   <PROPERTY>true</PROPERTY>
-                  <PUBLIC>true</PUBLIC>
-                  <STATIC>true</STATIC>
-                </AND>
-              </match>
-            </rule>
-          </section>
-          <section>
-            <rule>
-              <match>
-                <AND>
-                  <PROPERTY>true</PROPERTY>
                   <PROTECTED>true</PROTECTED>
                   <STATIC>true</STATIC>
                 </AND>
@@ -136,59 +155,7 @@
             <rule>
               <match>
                 <AND>
-                  <PRIVATE>true</PRIVATE>
                   <PROPERTY>true</PROPERTY>
-                </AND>
-              </match>
-            </rule>
-          </section>
-          <section>
-            <rule>
-              <match>
-                <AND>
-                  <PROPERTY>true</PROPERTY>
-                  <PROTECTED>true</PROTECTED>
-                </AND>
-              </match>
-            </rule>
-          </section>
-          <section>
-            <rule>
-              <match>
-                <AND>
-                  <PROPERTY>true</PROPERTY>
-                  <PUBLIC>true</PUBLIC>
-                </AND>
-              </match>
-            </rule>
-          </section>
-          <section>
-            <rule>
-              <match>
-                <AND>
-                  <METHOD>true</METHOD>
-                  <PRIVATE>true</PRIVATE>
-                  <STATIC>true</STATIC>
-                </AND>
-              </match>
-            </rule>
-          </section>
-          <section>
-            <rule>
-              <match>
-                <AND>
-                  <METHOD>true</METHOD>
-                  <PROTECTED>true</PROTECTED>
-                  <STATIC>true</STATIC>
-                </AND>
-              </match>
-            </rule>
-          </section>
-          <section>
-            <rule>
-              <match>
-                <AND>
-                  <METHOD>true</METHOD>
                   <PUBLIC>true</PUBLIC>
                   <STATIC>true</STATIC>
                 </AND>
@@ -200,7 +167,8 @@
               <match>
                 <AND>
                   <METHOD>true</METHOD>
-                  <PRIVATE>true</PRIVATE>
+                  <PROTECTED>true</PROTECTED>
+                  <STATIC>true</STATIC>
                 </AND>
               </match>
             </rule>
@@ -211,6 +179,38 @@
                 <AND>
                   <METHOD>true</METHOD>
                   <PROTECTED>true</PROTECTED>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <METHOD>true</METHOD>
+                  <PRIVATE>true</PRIVATE>
+                  <STATIC>true</STATIC>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <METHOD>true</METHOD>
+                  <PRIVATE>true</PRIVATE>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <METHOD>true</METHOD>
+                  <PUBLIC>true</PUBLIC>
+                  <STATIC>true</STATIC>
                 </AND>
               </match>
             </rule>

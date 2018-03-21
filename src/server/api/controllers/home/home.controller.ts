@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { Controller } from '../../../module/classes/controller';
+import { Controller } from 'module/classes/controller';
 
 export class HomeController extends Controller {
 

@@ -1,6 +1,6 @@
 import { IRouteMethod } from './route-methods';
 
-export default interface IRouteConfig {
+export interface IRouteConfig {
     method: IRouteMethod;
     path: string;
     handler: string;

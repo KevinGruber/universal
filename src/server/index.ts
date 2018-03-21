@@ -1,5 +1,8 @@
-import { Server } from './module/server/server';
+import { Server } from 'module/server';
+
+const bundle = require('../../dist/server/main.bundle');
 
 const server = new Server();
-server.registerSSR();
+server.init();
+server.registerSSR(bundle);
 server.start();

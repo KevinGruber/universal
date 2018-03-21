@@ -8,6 +8,7 @@ describe('Server is Running', () => {
 
     before(() => {
         this.server = new Server();
+        this.server.init();
         this.server.start(true);
     });
 

@@ -1,6 +1,5 @@
-import { Service } from '../../../module/classes/service';
-import { ProductService } from '../../services';
-
+import { Service } from 'module/classes/service';
+import { ProductService } from 'api/services';
 
 export class CartService extends Service {
     private readonly productService: ProductService;

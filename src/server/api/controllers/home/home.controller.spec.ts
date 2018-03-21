@@ -1,6 +1,6 @@
 import * as expect from 'expect';
 import * as request from 'request';
-import { Server } from '../../../module/server';
+import { Server } from 'module/server';
 
 const URL = 'http://localhost:3101';
 
@@ -8,6 +8,7 @@ describe('Home Controller Testing', () => {
 
     before(() => {
         this.server = new Server();
+        this.server.init();
         this.server.start(true);
     });
 

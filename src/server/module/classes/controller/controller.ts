@@ -1,4 +1,4 @@
-import { Server } from '../../server/server';
+import { Server } from 'module/server';
 
 export class Controller {
     constructor(private app: Server) {}
