@@ -6,6 +6,7 @@ import { ProductComponent } from './components/product/product.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { CartService } from './services/cart/cart.service';
 import { CMSService } from './services/cms/cms.service';
+import { NotFoundService } from 'app/core/services/not-found/not-found.service';
 
 @NgModule({
     imports: [
@@ -26,7 +27,7 @@ import { CMSService } from './services/cms/cms.service';
         ProductComponent,
         MatButtonModule
     ],
-    providers: [CartService, CMSService]
+    providers: [CartService, CMSService, NotFoundService]
 })
 export class CoreModule {
 }

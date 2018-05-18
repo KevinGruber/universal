@@ -4,6 +4,7 @@
     <button mat-icon-button class="icon" (click)="openCart()">
         <mat-icon [matBadge]="(cart$|async)?.products.length"
                   matBadgeOverlap="true"
+                  matBadgeColor="accent"
                   matBadgePosition="above after">shopping_cart
         </mat-icon>
     </button>

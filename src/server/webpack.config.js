@@ -1,24 +1,28 @@
 // Work around for https://github.com/angular/angular-cli/issues/7200
 
 const path = require('path');
-// noinspection NpmUsedModulesInstalled
 const webpack = require('webpack');
-// noinspection JSUnresolvedFunction
+const ProgressPlugin = require('webpack/lib/ProgressPlugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
+    mode: 'production',
     entry: {
         "server": path.join(__dirname, 'index.ts'),
         "prerender": path.join(__dirname, 'prerender/prerender.ts')
     },
     target: 'node',
+    devtool: "source-map",
+    optimization: {
+        minimize: false
+    },
     node: {
         __dirname: false
     },
     resolve: {
         extensions: ['.ts', '.js'],
         plugins: [new TsconfigPathsPlugin({
-            configFile: path.join(__dirname, './src/server/tsconfig.json')
+            configFile: path.join(__dirname, 'tsconfig.json')
         })]
     },
     externals: [/(node_modules|main\..*\.js)/],
@@ -33,6 +37,9 @@ module.exports = {
         }]
     },
     plugins: [
+        new ProgressPlugin((percentage, msg) => {
+            console.log((percentage * 100).toFixed(2) + '%', msg);
+        }),
         new webpack.ContextReplacementPlugin(
             /(.+)?angular(\\|\/)core(.+)?/,
             path.join(__dirname, 'src'), {}

@@ -1,7 +1,5 @@
-import { isPlatformBrowser } from '@angular/common';
-import { Component, Inject, OnInit, Optional, PLATFORM_ID } from '@angular/core';
-import { RESPONSE } from '@nguniversal/express-engine';
-import { Response } from 'express';
+import { Component, OnInit } from '@angular/core';
+import { NotFoundService } from 'app/core/services/not-found/not-found.service';
 
 @Component({
     selector: 'rlt-not-found',
@@ -10,13 +8,10 @@ import { Response } from 'express';
 })
 export class NotFoundComponent implements OnInit {
 
-    constructor(@Optional() @Inject(RESPONSE) private response: Response,
-                @Inject(PLATFORM_ID) private platformId: Object) {}
+    constructor(private notFoundService: NotFoundService) {}
 
     ngOnInit() {
-        if (!isPlatformBrowser(this.platformId)) {
-            this.response.status(404);
-        }
+        this.notFoundService.setStatus(404);
     }
 
 }
