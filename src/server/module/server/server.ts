@@ -1,11 +1,8 @@
-import { enableProdMode, ValueProvider } from '@angular/core';
-import { renderModuleFactory } from '@angular/platform-server';
-import { REQUEST, RESPONSE } from '@nguniversal/express-engine';
+import { enableProdMode } from '@angular/core';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 import * as BodyParser from 'body-parser';
 import * as Compression from 'compression';
 import * as Express from 'express';
-import { readFileSync } from 'fs';
 import * as http from 'http';
 import { isEmpty, merge } from 'lodash';
 import { join } from 'path';
@@ -19,6 +16,7 @@ import { IAppConfig } from 'api/types/app-config';
 import { IController } from 'api/types/controller';
 import { IRouteConfig } from 'api/types/route-config';
 import { IService } from 'api/types/service';
+import { ngExpressEngine } from '@nguniversal/express-engine';
 
 const DIST_FOLDER = join(process.cwd(), 'dist');
 
@@ -142,27 +140,34 @@ export class Server {
 
         enableProdMode();
 
-        const template = readFileSync(join(DIST_FOLDER, 'browser', 'index.html')).toString();
+        this.express.engine('html', ngExpressEngine({
+            bootstrap: AppServerModuleNgFactory,
+            providers: [
+                provideModuleMap(LAZY_MODULE_MAP)
+            ]
+        }));
 
-        this.express.engine('html', (_, options, callback) => {
-            renderModuleFactory(AppServerModuleNgFactory, {
-                document: template,
-                url: options.req.url,
-                extraProviders: [
-                    <ValueProvider>{
-                        provide: REQUEST,
-                        useValue: options.req
-                    },
-                    <ValueProvider>{
-                        provide: RESPONSE,
-                        useValue: options.req.res
-                    },
-                    provideModuleMap(LAZY_MODULE_MAP)
-                ]
-            }).then(html => {
-                callback(null, html);
-            });
-        });
+        // const template = readFileSync(join(DIST_FOLDER, 'browser', 'index.html')).toString();
+
+        // this.express.engine('html', (_, options, callback) => {
+        //     renderModuleFactory(AppServerModuleNgFactory, {
+        //         document: template,
+        //         url: options.req.url,
+        //         extraProviders: [
+        //             <ValueProvider>{
+        //                 provide: REQUEST,
+        //                 useValue: options.req
+        //             },
+        //             <ValueProvider>{
+        //                 provide: RESPONSE,
+        //                 useValue: options.req.res
+        //             },
+        //             provideModuleMap(LAZY_MODULE_MAP)
+        //         ]
+        //     }).then(html => {
+        //         callback(null, html);
+        //     });
+        // });
 
         // Serve static content
         this.express.get('*.*', Express.static(join(DIST_FOLDER, 'browser'), {

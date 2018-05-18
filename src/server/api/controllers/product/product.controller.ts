@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { Controller } from '../../../module';
-import { ProductService } from '../../services';
+import { Controller } from 'module/classes';
+import { ProductService } from 'api/services';
 
 export class ProductController extends Controller {
     private productService: ProductService;
