@@ -1,0 +1,634 @@
+{
+  "pk": "8796289664048",
+  "creationTime": "2017-06-27 12:28:47.910 UTC",
+  "modifiedTime": "2018-05-22 21:50:21.860 UTC",
+  "uid": "error404",
+  "name": "error404",
+  "contentSlots": [
+    {
+      "slotId": "ContentSlot-404",
+      "position": "Content",
+      "components": [
+        {
+          "pk": "8796355200060",
+          "creationtime": "2017-06-27 12:28:48.30 UTC",
+          "modifiedtime": "2017-09-05 08:57:27.127 UTC",
+          "uid": "error404Component",
+          "name": "Error 404 Component",
+          "visible": true,
+          "typeCode": "CMSError404Component",
+          "columns": 4,
+          "title": "404 Error",
+          "moodImage": {
+            "url": "/medias/404-Seite-DE.jpg?context=bWFzdGVyfGltYWdlc3w1NjgwNDJ8aW1hZ2UvanBlZ3xpbWFnZXMvaGIyL2hlNi84ODExNTU3ODQ3MDcwLmpwZ3w4MGFjYzk4YmY3OTg1ZDRhZjI2NGE2NTU4YmFjY2RhMGM1N2JiNWQzYTMyOTE4YzBhZWZmYTQ1N2VjOWIwMWM3",
+            "mailUrl": "https://www.melectronics.ch/medias/404-Seite-DE.jpg?context=bWFzdGVyfGltYWdlc3w1NjgwNDJ8aW1hZ2UvanBlZ3xpbWFnZXMvaGIyL2hlNi84ODExNTU3ODQ3MDcwLmpwZ3w4MGFjYzk4YmY3OTg1ZDRhZjI2NGE2NTU4YmFjY2RhMGM1N2JiNWQzYTMyOTE4YzBhZWZmYTQ1N2VjOWIwMWM3"
+          },
+          "additionalText": "<p>Bitte entschuldigen Sie, die gew&uuml;nschte Seite konnte leider nicht gefunden werden.</p>\n",
+          "contactLink": "/contact",
+          "description": "Seite nicht gefunden."
+        },
+        {
+          "pk": "8797359506492",
+          "creationtime": "2017-12-22 12:35:16.83 UTC",
+          "modifiedtime": "2017-12-22 12:35:16.90 UTC",
+          "uid": "PS_error-404_reco_1",
+          "name": "PS_error-404_reco_1",
+          "visible": true,
+          "typeCode": "CMSProductSliderComponent",
+          "columns": 4,
+          "products": [],
+          "displayMode": "FORM",
+          "placement": "error_page.recs_1"
+        },
+        {
+          "pk": "8797359539260",
+          "creationtime": "2017-12-22 12:35:58.70 UTC",
+          "modifiedtime": "2017-12-22 12:35:58.77 UTC",
+          "uid": "PS_error-404_reco_2",
+          "name": "PS_error-404_reco_2",
+          "visible": true,
+          "typeCode": "CMSProductSliderComponent",
+          "columns": 4,
+          "products": [],
+          "displayMode": "FORM",
+          "placement": "error_page.recs_2"
+        }
+      ]
+    },
+    {
+      "slotId": "FooterSlot",
+      "position": "Footer",
+      "components": [
+        {
+          "pk": "8796093842492",
+          "creationtime": "2017-05-30 11:47:31.287 UTC",
+          "modifiedtime": "2017-05-30 11:47:31.757 UTC",
+          "uid": "FooterComponentFull",
+          "name": "FooterKomponente",
+          "visible": true,
+          "typeCode": "FooterComponent",
+          "fullFooter": true,
+          "components": [
+            {
+              "pk": "8796093678652",
+              "creationtime": "2017-05-30 11:47:31.127 UTC",
+              "modifiedtime": "2017-06-20 10:50:02.987 UTC",
+              "uid": "PlaceholderComponentPayment",
+              "name": "Platzhalterkomponente",
+              "visible": true,
+              "typeCode": "PlaceholderComponent",
+              "title": "Zahlungsmittel",
+              "contentType": "PAYMENT"
+            },
+            {
+              "pk": "8796093645884",
+              "creationtime": "2017-05-30 11:47:31.117 UTC",
+              "modifiedtime": "2017-06-20 10:50:24.973 UTC",
+              "uid": "PlaceholderComponentNewsletter",
+              "name": "Platzhalterkomponente",
+              "visible": true,
+              "typeCode": "PlaceholderComponent",
+              "title": "Newsletter abonnieren",
+              "contentType": "NEWSLETTER"
+            },
+            {
+              "pk": "8796093514812",
+              "creationtime": "2017-05-30 11:47:31.47 UTC",
+              "modifiedtime": "2017-05-30 11:47:31.623 UTC",
+              "uid": "NavigationComponentCatalog",
+              "name": "Catalog",
+              "visible": true,
+              "typeCode": "NavigationComponent",
+              "navigationNode": {
+                "title": "Aus unserer Werbung",
+                "links": [
+                  {
+                    "pk": "8796094334012",
+                    "creationtime": "2017-05-30 11:47:31.913 UTC",
+                    "modifiedtime": "2017-08-23 08:16:07.13 UTC",
+                    "uid": "AktionenLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "/de/cp/aktionen",
+                    "external": false,
+                    "target": false,
+                    "name": "Alle Aktionen im Überblick",
+                    "targetName": "sameWindow"
+                  },
+                  {
+                    "pk": "8798059136060",
+                    "creationtime": "2018-04-26 13:52:44.790 UTC",
+                    "modifiedtime": "2018-04-26 13:59:00.760 UTC",
+                    "uid": "NeuheitenLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "/de/cp/neuheiten",
+                    "external": false,
+                    "target": false,
+                    "name": "Alle Neuheiten im Überblick",
+                    "targetName": "sameWindow"
+                  },
+                  {
+                    "pk": "8796094366780",
+                    "creationtime": "2017-05-30 11:47:31.920 UTC",
+                    "modifiedtime": "2018-01-29 08:21:30.707 UTC",
+                    "uid": "AktionsflyerLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "http://www.1kcloud.com/ep1mhWaA/",
+                    "external": true,
+                    "target": false,
+                    "name": "Aktueller Prospekt durchblättern",
+                    "targetName": "newWindow"
+                  }
+                ]
+              }
+            },
+            {
+              "pk": "8796093613116",
+              "creationtime": "2017-05-30 11:47:31.100 UTC",
+              "modifiedtime": "2017-06-20 10:51:06.600 UTC",
+              "uid": "PlaceholderComponentSocial",
+              "name": "Platzhalterkomponente",
+              "visible": true,
+              "typeCode": "PlaceholderComponent",
+              "title": "melectronics auf Social Media",
+              "contentType": "SOCIAL"
+            },
+            {
+              "pk": "8796093547580",
+              "creationtime": "2017-05-30 11:47:31.57 UTC",
+              "modifiedtime": "2017-05-30 11:47:31.623 UTC",
+              "uid": "NavigationComponentBuy",
+              "name": "Buy",
+              "visible": true,
+              "typeCode": "NavigationComponent",
+              "navigationNode": {
+                "title": "Einkaufen bei melectronics",
+                "links": [
+                  {
+                    "pk": "8796129199164",
+                    "creationtime": "2017-06-15 16:20:48.993 UTC",
+                    "modifiedtime": "2017-09-08 16:41:17.820 UTC",
+                    "uid": "VorteileLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "/de/cp/vorteile",
+                    "external": false,
+                    "target": false,
+                    "name": "Alle Vorteile auf einen Blick",
+                    "targetName": "sameWindow"
+                  },
+                  {
+                    "pk": "8796850390076",
+                    "creationtime": "2017-09-18 07:57:51.873 UTC",
+                    "modifiedtime": "2017-09-18 08:35:23.93 UTC",
+                    "uid": "KaufberatungLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "/de/cp/kaufberatung",
+                    "external": false,
+                    "target": false,
+                    "name": "Kaufberatung",
+                    "targetName": "sameWindow"
+                  },
+                  {
+                    "pk": "8796093940796",
+                    "creationtime": "2017-05-30 11:47:31.813 UTC",
+                    "modifiedtime": "2017-09-19 13:20:53.370 UTC",
+                    "uid": "LieferungLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "/de/cp/lieferung-abholung",
+                    "external": false,
+                    "target": false,
+                    "name": "Lieferung & Abholung",
+                    "targetName": "sameWindow"
+                  },
+                  {
+                    "pk": "8796093973564",
+                    "creationtime": "2017-05-30 11:47:31.820 UTC",
+                    "modifiedtime": "2017-08-22 14:36:54.23 UTC",
+                    "uid": "ZahlungLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "/de/cp/zahlungsmoeglichkeiten",
+                    "external": false,
+                    "target": false,
+                    "name": "Zahlungsmöglichkeiten",
+                    "targetName": "sameWindow"
+                  },
+                  {
+                    "pk": "8796129231932",
+                    "creationtime": "2017-06-15 16:21:56.480 UTC",
+                    "modifiedtime": "2017-08-22 14:35:49.57 UTC",
+                    "uid": "GarantieLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "/de/cp/m-garantie",
+                    "external": false,
+                    "target": false,
+                    "name": "M-Garantie",
+                    "targetName": "sameWindow"
+                  },
+                  {
+                    "pk": "8796094006332",
+                    "creationtime": "2017-05-30 11:47:31.830 UTC",
+                    "modifiedtime": "2017-09-15 17:27:50.667 UTC",
+                    "uid": "RückgabeLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "/de/cp/rueckgabe-retouren",
+                    "external": false,
+                    "target": false,
+                    "name": "Rückgabe & Retouren",
+                    "targetName": "sameWindow"
+                  },
+                  {
+                    "pk": "8796093908028",
+                    "creationtime": "2017-05-30 11:47:31.803 UTC",
+                    "modifiedtime": "2018-03-08 09:06:44.557 UTC",
+                    "uid": "FAQLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "/de/cp/ek_FAQ",
+                    "external": false,
+                    "target": false,
+                    "name": "Häufige Fragen (FAQ)",
+                    "targetName": "sameWindow"
+                  }
+                ]
+              }
+            },
+            {
+              "pk": "8796093449276",
+              "creationtime": "2017-05-30 11:47:31.33 UTC",
+              "modifiedtime": "2017-05-30 11:47:31.617 UTC",
+              "uid": "NavigationComponentServices",
+              "name": "Services",
+              "visible": true,
+              "typeCode": "NavigationComponent",
+              "navigationNode": {
+                "title": "Services & Dienstleistungen",
+                "links": [
+                  {
+                    "pk": "8796619605052",
+                    "creationtime": "2017-08-22 14:44:06.83 UTC",
+                    "modifiedtime": "2017-09-07 16:46:54.793 UTC",
+                    "uid": "AllserviceLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "/de/cp/services",
+                    "external": false,
+                    "target": false,
+                    "name": "Alle Services auf einen Blick",
+                    "targetName": "sameWindow"
+                  },
+                  {
+                    "pk": "8796094039100",
+                    "creationtime": "2017-05-30 11:47:31.837 UTC",
+                    "modifiedtime": "2017-09-20 11:48:41.860 UTC",
+                    "uid": "EinfachsorglosLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "/de/cp/einfach-sorglos-pakete",
+                    "external": false,
+                    "target": false,
+                    "name": "Einfach-Sorglos-Paket",
+                    "targetName": "sameWindow"
+                  },
+                  {
+                    "pk": "8796094137404",
+                    "creationtime": "2017-05-30 11:47:31.860 UTC",
+                    "modifiedtime": "2017-09-20 11:48:41.860 UTC",
+                    "uid": "MProtectLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "/de/cp/m-protect",
+                    "external": false,
+                    "target": false,
+                    "name": "M-Protect Versicherung",
+                    "targetName": "sameWindow"
+                  },
+                  {
+                    "pk": "8796094104636",
+                    "creationtime": "2017-05-30 11:47:31.853 UTC",
+                    "modifiedtime": "2018-06-19 08:55:19.10 UTC",
+                    "uid": "ErsatzteilLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "https://www.migros-service.ch/de",
+                    "external": true,
+                    "target": false,
+                    "name": "Ersatzteilservice & Reparaturen",
+                    "targetName": "newWindow"
+                  },
+                  {
+                    "pk": "8796094071868",
+                    "creationtime": "2017-05-30 11:47:31.847 UTC",
+                    "modifiedtime": "2017-11-08 15:06:09.723 UTC",
+                    "uid": "MigrosPhotoServiceLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "http://photoservice.migros.ch/de/?cref=cew_website_home_x_1442_x",
+                    "external": false,
+                    "target": false,
+                    "name": "Migros Photo Service",
+                    "targetName": "newWindow"
+                  },
+                  {
+                    "pk": "8796094170172",
+                    "creationtime": "2017-05-30 11:47:31.873 UTC",
+                    "modifiedtime": "2017-09-20 11:48:41.860 UTC",
+                    "uid": "UhrenserviceLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "/de/cp/uhren-service",
+                    "external": false,
+                    "target": false,
+                    "name": "Uhren-Service",
+                    "targetName": "sameWindow"
+                  }
+                ]
+              }
+            },
+            {
+              "pk": "8796093482044",
+              "creationtime": "2017-05-30 11:47:31.43 UTC",
+              "modifiedtime": "2017-05-30 11:47:31.623 UTC",
+              "uid": "NavigationComponentCompany",
+              "name": "Company",
+              "visible": true,
+              "typeCode": "NavigationComponent",
+              "navigationNode": {
+                "title": "Unternehmen",
+                "links": [
+                  {
+                    "pk": "8796094301244",
+                    "creationtime": "2017-05-30 11:47:31.903 UTC",
+                    "modifiedtime": "2017-09-21 07:50:20.597 UTC",
+                    "uid": "AboutLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "/de/cp/melectronics",
+                    "external": false,
+                    "target": false,
+                    "name": "Über melectronics",
+                    "targetName": "sameWindow"
+                  },
+                  {
+                    "pk": "8796129166396",
+                    "creationtime": "2017-06-15 16:09:23.490 UTC",
+                    "modifiedtime": "2017-11-14 08:10:39.33 UTC",
+                    "uid": "FilialenLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "/de/cp/storefinder",
+                    "external": false,
+                    "target": false,
+                    "name": "Filialen",
+                    "targetName": "sameWindow"
+                  },
+                  {
+                    "pk": "8796094235708",
+                    "creationtime": "2017-05-30 11:47:31.887 UTC",
+                    "modifiedtime": "2017-08-22 14:37:48.840 UTC",
+                    "uid": "NachhaltigkeitLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "/de/cp/nachhaltigkeit",
+                    "external": false,
+                    "target": false,
+                    "name": "Nachhaltigkeit",
+                    "targetName": "sameWindow"
+                  },
+                  {
+                    "pk": "8796094202940",
+                    "creationtime": "2017-05-30 11:47:31.880 UTC",
+                    "modifiedtime": "2017-11-21 12:37:15.243 UTC",
+                    "uid": "JobsLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "https://migros-gruppe.jobs/de/unsere-unternehmen/melectronics ",
+                    "external": true,
+                    "target": false,
+                    "name": "Offene Stellen",
+                    "targetName": "newWindow"
+                  },
+                  {
+                    "pk": "8796094268476",
+                    "creationtime": "2017-05-30 11:47:31.897 UTC",
+                    "modifiedtime": "2018-05-14 08:07:15.307 UTC",
+                    "uid": "MedienLink",
+                    "visible": true,
+                    "typeCode": "CMSLinkComponent",
+                    "url": "/de/cp/medien",
+                    "external": false,
+                    "target": false,
+                    "name": "Medien",
+                    "targetName": "sameWindow"
+                  }
+                ]
+              }
+            },
+            {
+              "pk": "8796093744188",
+              "creationtime": "2017-05-30 11:47:31.213 UTC",
+              "modifiedtime": "2017-09-11 15:52:41.980 UTC",
+              "uid": "ParagraphComponentCustomerService",
+              "name": "CustomerService",
+              "visible": true,
+              "typeCode": "CMSTabParagraphComponent",
+              "content": "<h5>Fragen zu Filialen und Produkten:</h5>\n\n<h6>M-Infoline 0800 84 0848</h6>\n\n<p>Montag bis Freitag<br />\n08.00 - 18.00 Uhr<br />\nSamstag<br />\n08.30 - 16.30 Uhr</p>\n\n<p>&nbsp;</p>\n\n<h5>Fragen zum Online-Shop &amp; Online Bestellungen:</h5>\n\n<h6>Migros-Service 0848 151 151</h6>\n\n<p>Montag bis Freitag<br />\n08.00 - 17.00 Uhr</p>\n",
+              "title": "Kundendienst",
+              "link": {
+                "pk": "8796093416508",
+                "creationtime": "2017-05-30 11:47:30.877 UTC",
+                "modifiedtime": "2018-06-19 08:57:21.57 UTC",
+                "uid": "CustomerCenterLink",
+                "visible": true,
+                "typeCode": "CMSLinkComponent",
+                "url": "/de/cp/contactFormPage",
+                "external": false,
+                "target": false,
+                "name": "Zum Kontaktcenter",
+                "targetName": "sameWindow"
+              }
+            }
+          ]
+        },
+        {
+          "pk": "8796093580348",
+          "creationtime": "2017-05-30 11:47:31.60 UTC",
+          "modifiedtime": "2018-03-08 08:32:43.293 UTC",
+          "uid": "NavigationComponentFooterBottom",
+          "name": "Footer_Bottom_Checkout",
+          "visible": true,
+          "typeCode": "NavigationComponent",
+          "navigationNode": {
+            "links": [
+              {
+                "pk": "8796093285436",
+                "creationtime": "2017-05-30 11:47:30.843 UTC",
+                "modifiedtime": "2018-03-08 09:06:44.557 UTC",
+                "uid": "AGBLink",
+                "visible": true,
+                "typeCode": "CMSLinkComponent",
+                "url": "/de/cp/agb",
+                "external": false,
+                "target": false,
+                "name": "AGB",
+                "targetName": "sameWindow"
+              },
+              {
+                "pk": "8796093318204",
+                "creationtime": "2017-05-30 11:47:30.853 UTC",
+                "modifiedtime": "2017-08-24 14:45:26.40 UTC",
+                "uid": "PrivacyLink",
+                "visible": true,
+                "typeCode": "CMSLinkComponent",
+                "url": "/de/cp/datenschutz",
+                "external": false,
+                "target": false,
+                "name": "Datenschutz",
+                "targetName": "sameWindow"
+              },
+              {
+                "pk": "8797355902012",
+                "creationtime": "2017-12-19 09:15:54.820 UTC",
+                "modifiedtime": "2017-12-19 09:31:44.537 UTC",
+                "uid": "un_impressum",
+                "visible": true,
+                "typeCode": "CMSLinkComponent",
+                "url": "/de/cp/impressum",
+                "external": false,
+                "target": false,
+                "name": "Impressum",
+                "targetName": "sameWindow"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slotId": "HeaderSlot",
+      "position": "Header",
+      "components": [
+        {
+          "pk": "8796093219900",
+          "creationtime": "2017-05-30 11:47:30.780 UTC",
+          "modifiedtime": "2018-06-19 08:59:27.630 UTC",
+          "uid": "header",
+          "name": "Default Header",
+          "visible": true,
+          "typeCode": "CMSHeaderComponent",
+          "links": [
+            {
+              "title": "Service",
+              "iconId": "md--service-header",
+              "links": [
+                {
+                  "pk": "8796093088828",
+                  "creationtime": "2017-05-30 11:47:30.507 UTC",
+                  "modifiedtime": "2017-09-20 12:14:18.773 UTC",
+                  "uid": "serviceLink",
+                  "visible": true,
+                  "typeCode": "CMSLinkComponent",
+                  "url": "/de/cp/services",
+                  "external": false,
+                  "target": false,
+                  "name": "Alle Services auf einen Blick",
+                  "targetName": "sameWindow"
+                },
+                {
+                  "pk": "8796094039100",
+                  "creationtime": "2017-05-30 11:47:31.837 UTC",
+                  "modifiedtime": "2017-09-20 11:48:41.860 UTC",
+                  "uid": "EinfachsorglosLink",
+                  "visible": true,
+                  "typeCode": "CMSLinkComponent",
+                  "url": "/de/cp/einfach-sorglos-pakete",
+                  "external": false,
+                  "target": false,
+                  "name": "Einfach-Sorglos-Paket",
+                  "targetName": "sameWindow"
+                },
+                {
+                  "pk": "8796094137404",
+                  "creationtime": "2017-05-30 11:47:31.860 UTC",
+                  "modifiedtime": "2017-09-20 11:48:41.860 UTC",
+                  "uid": "MProtectLink",
+                  "visible": true,
+                  "typeCode": "CMSLinkComponent",
+                  "url": "/de/cp/m-protect",
+                  "external": false,
+                  "target": false,
+                  "name": "M-Protect Versicherung",
+                  "targetName": "sameWindow"
+                },
+                {
+                  "pk": "8796094170172",
+                  "creationtime": "2017-05-30 11:47:31.873 UTC",
+                  "modifiedtime": "2017-09-20 11:48:41.860 UTC",
+                  "uid": "UhrenserviceLink",
+                  "visible": true,
+                  "typeCode": "CMSLinkComponent",
+                  "url": "/de/cp/uhren-service",
+                  "external": false,
+                  "target": false,
+                  "name": "Uhren-Service",
+                  "targetName": "sameWindow"
+                }
+              ]
+            },
+            {
+              "title": "Filialen",
+              "iconId": "md--location-header",
+              "links": [
+                {
+                  "pk": "8796093121596",
+                  "creationtime": "2017-05-30 11:47:30.517 UTC",
+                  "modifiedtime": "2017-10-30 23:58:31.927 UTC",
+                  "uid": "subsidiariesLink",
+                  "visible": true,
+                  "typeCode": "CMSLinkComponent",
+                  "url": "/de/cp/storefinder",
+                  "external": false,
+                  "target": false,
+                  "name": "Filialfinder",
+                  "targetName": "sameWindow"
+                },
+                {
+                  "pk": "8796094301244",
+                  "creationtime": "2017-05-30 11:47:31.903 UTC",
+                  "modifiedtime": "2017-09-21 07:50:20.597 UTC",
+                  "uid": "AboutLink",
+                  "visible": true,
+                  "typeCode": "CMSLinkComponent",
+                  "url": "/de/cp/melectronics",
+                  "external": false,
+                  "target": false,
+                  "name": "Über melectronics",
+                  "targetName": "sameWindow"
+                }
+              ]
+            }
+          ],
+          "searchBox": {
+            "displayProductImages": true,
+            "displayProducts": true,
+            "displaySuggestions": true,
+            "maxProducts": 10,
+            "maxSuggestions": 4,
+            "waitTimeBeforeRequest": 500,
+            "minCharactersBeforeRequest": 3
+          },
+          "fullHeader": true,
+          "helpContactContent": "<div>\n<div>\n<h3>H&auml;ufige Fragen (FAQ)</h3>\n<a class=\"service-nav--faq-btn btn btn__sm btn__primary-outline\" href=\"/de/cp/faq\">&Uuml;bersicht aller Fragen</a></div>\n</div>\n\n<div>\n<h3>&nbsp;</h3>\n\n<h3>Kundendienst</h3>\n\n<h5>Fragen zu Filialen und Produkten:</h5>\n\n<h6>M-Infoline 0800 84 0848</h6>\n\n<p>Montag bis Freitag<br />\n08.00 - 18.00 Uhr<br />\nSamstag<br />\n08.30 - 16.30 Uhr</p>\n\n<p>&nbsp;</p>\n\n<h5>Fragen zum Online-Shop &amp; Online Bestellungen:</h5>\n\n<h6>Migros-Service 0848 151 151</h6>\n\n<p>Montag bis Freitag<br />\n08.00 - 17.00 Uhr</p>\n\n<p>&nbsp;</p>\n<a class=\"u-reset btn btn__sm btn__secondary\" href=\"/de/contact\">Zum Kontaktcenter</a></div>\n"
+        }
+      ]
+    }
+  ],
+  "templateName": "LandingPageTemplate"
+}

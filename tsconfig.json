@@ -4,16 +4,47 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "strict": true,
+    "allowJs": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "strictPropertyInitialization": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
     "target": "es5",
     "typeRoots": [
       "node_modules/@types"
     ],
+    "baseUrl": "src",
+    "paths": {
+      "client": [
+        "src/client"
+      ],
+      "server": [
+        "src/server"
+      ],
+      "server-new": [
+        "src/server-new"
+      ]
+    },
     "lib": [
       "es2017",
       "dom"
     ]
-  }
+  },
+  "include": [
+    "src/**/**.ts",
+    "src/**/**.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

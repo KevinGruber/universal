@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Cart } from 'app/shared/cart';
-import { environment } from 'environments/environment';
+import { Cart } from 'client/app/shared/cart';
+import { environment } from 'client/environments/environment';
 import { Observable } from 'rxjs/Observable';
 import { delay } from 'rxjs/operators/delay';
 import { retry } from 'rxjs/operators/retry';

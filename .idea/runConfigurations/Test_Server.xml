@@ -1,13 +1,14 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Test Server" type="mocha-javascript-test-runner" factoryName="Mocha">
+  <configuration default="false" name="Test Server" type="mocha-javascript-test-runner">
     <node-interpreter>project</node-interpreter>
     <node-options />
+    <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
     <working-directory>$PROJECT_DIR$/src/server</working-directory>
     <pass-parent-env>true</pass-parent-env>
     <ui>bdd</ui>
     <extra-mocha-options>--require ts-node/register  -r tsconfig-paths/register --recursive</extra-mocha-options>
     <test-kind>PATTERN</test-kind>
     <test-pattern>**/*.spec.ts</test-pattern>
-    <method />
+    <method v="2" />
   </configuration>
 </component>

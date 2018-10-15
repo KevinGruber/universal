@@ -4,7 +4,7 @@ import * as BodyParser from 'body-parser';
 import * as Compression from 'compression';
 import * as Express from 'express';
 import * as http from 'http';
-import { isEmpty, merge } from 'lodash';
+import { merge } from 'lodash';
 import { join } from 'path';
 
 import 'reflect-metadata';
@@ -147,28 +147,6 @@ export class Server {
             ]
         }));
 
-        // const template = readFileSync(join(DIST_FOLDER, 'browser', 'index.html')).toString();
-
-        // this.express.engine('html', (_, options, callback) => {
-        //     renderModuleFactory(AppServerModuleNgFactory, {
-        //         document: template,
-        //         url: options.req.url,
-        //         extraProviders: [
-        //             <ValueProvider>{
-        //                 provide: REQUEST,
-        //                 useValue: options.req
-        //             },
-        //             <ValueProvider>{
-        //                 provide: RESPONSE,
-        //                 useValue: options.req.res
-        //             },
-        //             provideModuleMap(LAZY_MODULE_MAP)
-        //         ]
-        //     }).then(html => {
-        //         callback(null, html);
-        //     });
-        // });
-
         // Serve static content
         this.express.get('*.*', Express.static(join(DIST_FOLDER, 'browser'), {
             maxAge: '1y'
@@ -181,15 +159,6 @@ export class Server {
             }
             res.render('index', {req, res});
         });
-    }
-
-    public static getEnvironment() {
-        const envArg = process.argv.find(a => a.includes('env'));
-        const value = Array.isArray(envArg) && envArg.split('=');
-        if (!isEmpty(value)) {
-            return value[1];
-        }
-        return 'dev';
     }
 
     public init() {

@@ -1,0 +1,98 @@
+{
+  "pk": "8796420867121",
+  "creationTime": "2017-07-21 08:06:51.967 UTC",
+  "modifiedTime": "2018-05-22 21:50:21.943 UTC",
+  "uid": "testPage",
+  "name": "Testpage",
+  "title": "Test Seite",
+  "contentSlots": [
+    {
+      "slotId": "ContentSlot",
+      "position": "Content",
+      "components": [
+        {
+          "pk": "8798818501692",
+          "creationtime": "2018-08-30 08:39:08.697 UTC",
+          "modifiedtime": "2018-09-04 07:42:08.463 UTC",
+          "uid": "TB_ALIEN",
+          "name": "TB_ALIEN",
+          "visible": true,
+          "typeCode": "CMSTextImageComponent",
+          "columns": 2,
+          "title": "MUGLER ALIEN EdP Spray - nachfüllbar",
+          "style": "STYLE2",
+          "link": {
+            "pk": "8798818534460",
+            "creationtime": "2018-08-30 08:42:47.663 UTC",
+            "modifiedtime": "2018-08-30 08:45:14.670 UTC",
+            "uid": "link_about",
+            "visible": true,
+            "typeCode": "CMSLinkComponent",
+            "url": "/de/testPage",
+            "external": false,
+            "target": false,
+            "name": "Jetzt vorbestellen",
+            "targetName": "sameWindow"
+          },
+          "image": {
+            "pk": "8798818468924",
+            "creationtime": "2018-08-30 08:39:06.347 UTC",
+            "modifiedtime": "2018-08-30 08:41:46.937 UTC",
+            "uid": "img_alien",
+            "name": "img_alien",
+            "visible": true,
+            "typeCode": "CMSImageComponent",
+            "url": "/img/alien.jpg",
+            "realFileName": "alien.jpg",
+            "mime": "image/jpeg"
+          }
+        },
+        {
+          "pk": "8797089203260",
+          "creationtime": "2017-10-23 11:24:52.897 UTC",
+          "modifiedtime": "2018-03-26 09:26:43.410 UTC",
+          "uid": "PS_Startseite_Parfum_1",
+          "name": "PS_Startseite_Parfum_1",
+          "visible": true,
+          "typeCode": "CMSProductSliderComponent",
+          "columns": 4,
+          "title": "Elektronik Angebote aus unserem Prospekt",
+          "products": [],
+          "displayMode": "FORM",
+          "placement": "home_page.recs_1"
+        }
+      ]
+    },
+    {
+      "slotId": "FooterSlot",
+      "position": "Footer",
+      "components": [
+        {
+          "pk": "8796093842492",
+          "creationtime": "2017-05-30 11:47:31.287 UTC",
+          "modifiedtime": "2017-05-30 11:47:31.757 UTC",
+          "uid": "FooterComponentFull",
+          "name": "FooterKomponente",
+          "visible": true,
+          "typeCode": "FooterComponent"
+        }
+      ]
+    },
+    {
+      "slotId": "HeaderSlot",
+      "position": "Header",
+      "components": [
+        {
+          "pk": "8796093219900",
+          "creationtime": "2017-05-30 11:47:30.780 UTC",
+          "modifiedtime": "2018-06-19 08:59:27.630 UTC",
+          "uid": "header",
+          "name": "Default Header",
+          "visible": true,
+          "typeCode": "CMSHeaderComponent"
+        }
+      ]
+    }
+  ],
+  "templateName": "LandingPageTemplate"
+}

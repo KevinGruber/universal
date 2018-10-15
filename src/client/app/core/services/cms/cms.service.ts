@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CMSData } from 'app/shared/cms';
-import { environment } from 'environments/environment';
+import { CMSData } from 'client/app/shared/cms';
+import { environment } from 'client/environments/environment';
 
 @Injectable()
 export class CMSService {
